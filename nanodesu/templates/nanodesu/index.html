@@ -1,0 +1,13 @@
+{% extends 'nanodesu/base.html' %}
+{% block content %}
+<h1>Nanodesu's Series</h1>
+{% if series_list %}
+    <ul>
+    {% for series in series_list %}
+        <li><a href="{% url 'series-detail' series.slug %}">{{ series.title }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No series are available.</p>
+{% endif %}
+{% endblock %}

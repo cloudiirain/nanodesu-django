@@ -1,0 +1,18 @@
+{% extends 'nanodesu/base.html' %}
+{% block content %}
+<h1>{{ series.title }}</h1>
+
+You have reached the series page. <br><br>
+
+{% if series.post_set.all %}
+<ul>
+    {% for post in series.post_set.all %}
+    <li><a href="{% url 'post-detail' post.slug %}">{{ post.title }}</a></li>
+    {% endfor %}
+</ul>
+{% else %}
+There are no chapters.
+{% endif %}
+
+
+{% endblock %}
